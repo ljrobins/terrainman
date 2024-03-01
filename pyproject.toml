@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "terrainman"
-version = "0.0.37"
+version = "0.0.38"
 description = "A package for downloading and managing high-fidelity terrain files and solar irradiance data"
 authors = ["Liam Robinson <robin502@purdue.edu>"]
 readme = "README.md"
@@ -18,9 +18,6 @@ python = ">3.8"
 numpy = ">=1.24.2"
 scipy = ">=1.10.1"
 python-dotenv = ">=1.0.0"
-trimesh = ">=3.21.5"
-rtree = ">=1.0.1"
-pyembree = ">=0.1.12"
 rasterio = ">=1.3.6"
 netCDF4 = ">=1.6.3"
 requests = ">=2.26.0"

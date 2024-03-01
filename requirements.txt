@@ -1,9 +1,6 @@
 numpy
 scipy
 python-dotenv
-trimesh
-rtree
-pyembree
 rasterio
 netCDF4
 requests

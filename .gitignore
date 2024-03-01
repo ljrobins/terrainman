@@ -171,3 +171,4 @@ Makefile
 
 *.lock
 *.cfg
+*.csv

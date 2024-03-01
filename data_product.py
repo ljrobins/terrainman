@@ -1,15 +1,13 @@
 
-import src.terrainman as dp
-import numpy as np
-import matplotlib.pyplot as plt
 import datetime
 import os
-import pyvista as pv
-import pyspaceaware as ps
 
-import numpy as np
-import terrainman as tm
 import matplotlib.pyplot as plt
+import numpy as np
+import mirage as mr
+import pyvista as pv
+import terrainman as tm
+
 station_lat_deg, station_lon_deg = 27.7172, 85.3240 # Katmandu
 tdh = tm.TerrainDataHandler()
 tile = tdh.load_tiles_containing(station_lat_deg, station_lon_deg)

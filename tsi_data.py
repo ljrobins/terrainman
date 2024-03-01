@@ -1,9 +1,13 @@
-from terrainman import TsiDataHandler
 import datetime
+
+import matplotlib.pyplot as plt
+from terrainman import TsiDataHandler
 import mirage as mr
 import numpy as np
 
-import matplotlib.pyplot as plt
+
+import terrainman as tm
+tm.purge_data()
 
 if __name__ == "__main__":
     date = mr.utc(2000, 12, 9)
