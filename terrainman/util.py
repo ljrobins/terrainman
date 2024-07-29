@@ -13,10 +13,12 @@ import rasterio
 from netCDF4 import Dataset
 import shutil
 
+
 def purge_data():
-    assert 'terrainman' in os.environ["TERRAIN_DATA"]
+    assert "terrainman" in os.environ["TERRAIN_DATA"]
     shutil.rmtree(os.environ["TERRAIN_DATA"])
     os.mkdir(os.environ["TERRAIN_DATA"])
+
 
 def _strip_tuple(t: tuple) -> tuple:
     """Returns a copy of a tuple-of-tuples with no extra layers such that `t[0][0]` is not a tuple
@@ -29,6 +31,7 @@ def _strip_tuple(t: tuple) -> tuple:
     while isinstance(t[0], tuple):
         t = t[0]
     return (t,)  # I am braindead and tired so this terribleness will have to do
+
 
 class DataProduct(ABC):
     HTTP_ERR_MSG = "HTTP error occured, aborting..."
@@ -47,7 +50,7 @@ class DataProduct(ABC):
         try:
             os.environ["EARTHDATA_USERNAME"]
             os.environ["EARTHDATA_PASSWORD"]
-        except KeyError as e:
+        except KeyError:
             print(
                 "\nEnvironmental variables 'EARTHDATA_USERNAME' and 'EARTHDATA_PASSWORD' must be set!\nRegister at https://urs.earthdata.nasa.gov/users/new and set them with either:\n    - os.environ['EARTHDATA_USERNAME'] = '<your_username>'\n      os.environ['EARTHDATA_PASSWORD'] = '<your_password>'\n    - Create a .env.shared file in the calling directory containing\nEARTHDATA_USERNAME=<your_username>\nEARTHDATA_PASSWORD=<your_password>"
             )
@@ -98,7 +101,7 @@ class DataProduct(ABC):
 
         try:
             self.response = opener.open(req)
-        except urllib.error.HTTPError as e:
+        except urllib.error.HTTPError:
             print(self.HTTP_ERR_MSG)
             self._store_bad_input(*args)
             self.response = None

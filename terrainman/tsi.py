@@ -1,4 +1,3 @@
-
 import os
 import datetime
 import requests
@@ -7,12 +6,14 @@ import numpy as np
 from scipy.interpolate import interp1d
 from .util import DataProduct
 
+
 class TsiDataHandler(DataProduct):
     """Handles Total Solar Irradiance (TSI) data
 
     :param DataProduct: Abstract class for handling data products
     :type DataProduct: class
     """
+
     def __init__(self) -> None:
         self._storage_dir = os.path.join(os.environ["TERRAIN_DATA"], "tsi")
         self.url_base = (
@@ -48,7 +49,7 @@ class TsiDataHandler(DataProduct):
         self._after_init()
 
     def _set_fnames(self, date: datetime.datetime) -> str:
-        csv_path = os.path.join(os.environ["TERRAIN_DATA"], f"tsi_daily.csv")
+        csv_path = os.path.join(os.environ["TERRAIN_DATA"], "tsi_daily.csv")
         with open(csv_path, "r") as f:
             csv_els = [x for x in f.read().split(",") if len(x) > 0]
             try:

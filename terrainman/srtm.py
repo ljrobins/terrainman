@@ -4,12 +4,14 @@ from .util import DataProduct
 import numpy as np
 import scipy
 
+
 class TerrainDataHandler(DataProduct):
     """Handles Shuttle Radar Terrain Mission (SRTM) data
 
     :param DataProduct: Abstract class for handling data products
     :type DataProduct: class
     """
+
     def __init__(self) -> None:
         self._storage_dir = os.path.join(os.environ["TERRAIN_DATA"], "terrain")
         self.url_base = "https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/"
@@ -142,4 +144,4 @@ class SrtmTile:
                 **kwargs, xi=np.hstack((lat_deg, lon_deg))
             )[0]
         else:
-            raise NotImplemented("Inputs must be either floats or np.ndarrays")
+            raise NotImplementedError("Inputs must be either floats or np.ndarrays")
