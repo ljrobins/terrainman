@@ -14,7 +14,8 @@ class TerrainDataHandler(DataProduct):
 
     def __init__(self) -> None:
         self._storage_dir = os.path.join(os.environ["TERRAIN_DATA"], "terrain")
-        self.url_base = "https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/"
+        self.url_base = 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/SRTMGL1.003/'
+        # self.url_base = "https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/"
         self.download_format = "zip"
         self.save_format = "hgt"
         self.HTTP_ERR_MSG = (
@@ -29,9 +30,9 @@ class TerrainDataHandler(DataProduct):
         tile_lon_str = f'{"W" if lon < 0 else "E"}{abs(lon):03}'
         tile_lat_str = f'{"N" if lat > 0 else "S"}{abs(lat):02}'
         extracted_fname = f"{tile_lat_str}{tile_lon_str}.hgt"
-        url_fname = f"{tile_lat_str}{tile_lon_str}.SRTMGL1.hgt.zip"
+        url_fname = f"{tile_lat_str}{tile_lon_str}.SRTMGL1.hgt/{tile_lat_str}{tile_lon_str}.SRTMGL1.hgt.zip"
         self.extracted_fname = extracted_fname
-        self.url_fname = url_fname
+        self.url_fname = url_fname        
         return self.extracted_fname
 
     def download_tile(self, lat: int, lon: int) -> None:
