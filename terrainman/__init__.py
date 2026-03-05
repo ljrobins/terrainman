@@ -7,8 +7,8 @@ from .srtm import *
 from .tsi import *
 from .util import *
 
-if os.path.exists(".env.shared"):
-    dotenv.load_dotenv(".env.shared")
+if os.path.exists(".env.secret"):
+    dotenv.load_dotenv(".env.secret")
 
 
 os.environ["TERRAIN_SRC"] = os.path.dirname(

@@ -5,4 +5,4 @@ import terrainman as tm
 
 # as the old usgs data is now offline
 
-tile = tm.TerrainDataHandler().load_tiles_containing(43.0, -110.0)
+tile = tm.TerrainDataHandler().load_tiles_containing(32.0, -106.0)
